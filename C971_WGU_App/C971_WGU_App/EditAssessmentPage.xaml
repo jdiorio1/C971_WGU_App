@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.EditAssessmentPage"
+             Title="Edit Assessment">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Assessment Name"
+               Style="{StaticResource AddEditLabel}"/>
+            <Entry x:Name="AssessmentName" Text="{Binding Name}" 
+                   MaxLength="250"/>
+            <!--<Label Text="Assessment Type" Style="{StaticResource AddEditLabel}"/>
+            <Picker x:Name="AssessTypePicker" Title="Choose Type"/>-->
+            <Label Text="Start Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="startDatePicker" Date="{Binding StartDate}"
+                        Format="d"/>
+            <Label Text="End Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="endDatePicker" Date="{Binding EndDate}"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker}, Path=Date}"
+                        Format="d"/>
+            <Label Text="Set alerts for start and end of assessments" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+            <StackLayout Orientation="Horizontal" Padding="10">
+            <RadioButton x:Name="YesButton" Text="Yes" CheckedChanged="YesButton_CheckedChanged"/>
+            <RadioButton x:Name="NoButton"  Text="No" CheckedChanged="NoButton_CheckedChanged"/>
+            </StackLayout>
+            <Button Text="Save" x:Name="SaveButton"
+                    Style="{StaticResource GoldButtonStyle}" Clicked="SaveButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

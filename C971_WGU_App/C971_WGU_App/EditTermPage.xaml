@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c971_WGU_App="clr-namespace:C971_WGU_App;assembly=C971_WGU_App" xmlns:c971_WGU_App1="clr-namespace:C971_WGU_App.Models"
+             x:Class="C971_WGU_App.EditTermPage"
+             Title="Edit Term">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Title"
+       Style="{StaticResource AddEditLabel}"/>
+            <Entry x:Name="TermTitle"
+                   Text="{Binding Title}"
+                   MaxLength="250"/>
+            <Label Text="Start Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="startDatePicker"
+                        Date="{Binding StartDate}"
+                        Format="d"/>
+            <Label Text="End Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="endDatePicker"
+                        Date="{Binding EndDate}"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker}, Path=Date}"
+                        Format="d"/>
+            <Button Text="Save"
+                    Style="{StaticResource GoldButtonStyle}"
+                    Clicked="SaveButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c971_WGU_App="clr-namespace:C971_WGU_App;assembly=C971_WGU_App"
+             x:Class="C971_WGU_App.AddCoursePage"
+             Title="Add Course">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="10">
+            <!--Select Term, Enter Course Name, pick start and end dates and pick course status-->
+                <Label Text="Term" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+                <Picker x:Name="TermPicker" Title="Choose a Term" ItemDisplayBinding="{Binding Title}"/>
+                <Label Text="Course Name" Style="{StaticResource AddEditLabel}"/>
+            <Entry x:Name="CourseName"
+                   Placeholder="Enter Course Name Here"
+                   PlaceholderColor="Gray"
+                   MaxLength="250"/>
+            <Label Text="Start Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="startDatePicker"
+                        Format="d"/>
+            <Label Text="End Date"
+                   Margin="0, 30, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+            <DatePicker x:Name="endDatePicker"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker}, Path=Date}"
+                        Format="d"/>
+            <Label Text="Course Status" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+            <Picker Title="Choose a Status" x:Name="courseStatus">
+                    <Picker.Items>
+                        <x:String>Not Started</x:String>
+                    <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                    </Picker.Items>
+            </Picker>
+                <Label Text="Set alerts for start and end of course" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <RadioButton x:Name="YesButton" Text="Yes" IsChecked="True" CheckedChanged="YesButton_CheckedChanged"/>
+                    <RadioButton x:Name="NoButton" Text="No" CheckedChanged="NoButton_CheckedChanged"/>
+                </StackLayout>
+                <!--Enter Course Instructor name, phone and email -->
+            <Label Text="Instructor Name" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+            <Entry x:Name="InstructorName"
+                   Placeholder="John Smith"
+                   PlaceholderColor="Gray"
+                   MaxLength="250"/>
+            <Label Text="Instructor Phone" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+            <Entry x:Name="InstructorPhone"
+                   Placeholder="1234567890"
+                   PlaceholderColor="Gray"
+                   MaxLength="10"/>
+            <Label Text="Instructor Email" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+            <Entry x:Name="InstructorEmail"
+                   Placeholder="johnsmith@123.edu"
+                   PlaceholderColor="Gray"
+                   MaxLength="100"/>
+            <!--Enter Notes Here-->
+                <Label Text="Notes" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+                <Editor x:Name="Notes" 
+                        Placeholder="Enter Notes" 
+                        PlaceholderColor="Gray"
+                        MaxLength="1000"
+                        AutoSize="TextChanges"/>
+            <!--Save Button-->
+                <Button Text="Save"
+                    Style="{StaticResource GoldButtonStyle}"
+                        Clicked="SaveButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

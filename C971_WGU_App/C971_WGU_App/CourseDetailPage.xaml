@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.CourseDetailPage"
+             xmlns:c971_WGU_App="clr-namespace:C971_WGU_App;assembly=C971_WGU_App" xmlns:c971_WGU_App1="clr-namespace:C971_WGU_App.Models"
+             BackgroundColor="White"
+             Title="Course Detail">
+    <ContentPage.Content>
+        <ScrollView>
+                <StackLayout Padding="10">
+                    <!--Course Information-->
+                    <Label x:Name="CourseName" Text="{Binding Name}"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                  FontSize="Title"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource WGU_MainBlue}"/>
+                    <Label Text="Start Date" Margin="0, 20, 0, 0" Style="{StaticResource AddEditLabel}"/>
+                    <Label x:Name="startDate" Text="{Binding StartDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <Label Text="End Date"
+                   Margin="0, 20, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+                    <Label x:Name="endDate" Text="{Binding EndDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <Label Text="Course Status" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                    <Label x:Name="courseStatus" Text="{Binding Status}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <!--Instuctor Information-->
+                    <Label Text="Instructor" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"
+                   FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource WGU_MainBlue}" Margin="0, 50, 0, 0"/>
+                    <Label Text="Instructor Name" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                    <Label x:Name="InstructorName" Text="{Binding Name}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <Label Text="Instructor Phone" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                    <Label x:Name="InstructorPhone" Text="{Binding Phone}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <Label Text="Instructor Email" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                    <Label x:Name="InstructorEmail" Text="{Binding Email}" TextColor="{StaticResource WGU_Gold}" FontSize="Medium"/>
+                    <!--Notes-->
+                    <Label Text="Notes" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"
+                   FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource WGU_MainBlue}" Margin="0, 50, 0, 20"/>
+                    <Label x:Name="Notes" Text="{Binding Notes}" TextColor="{StaticResource WGU_Gold}" LineBreakMode="WordWrap" FontSize="Medium"/>
+                    <Label x:Name="ShareNotesLabel" TextColor="{StaticResource WGU_SecondBlue}" Text="Share Notes" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="End" FontSize="Medium">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <!--<Button x:Name="ShareButton" Text="Share Notes" TextColor="{StaticResource WGU_MainBlue}" FontAttributes="Bold" HorizontalOptions="End" Clicked="ShareButton_Clicked"/>-->
+                    <!--Assessments-->
+                <Label Text="Go To Assessments" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand"
+                   FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource WGU_MainBlue}" TextDecorations="Underline"
+                   Margin="0, 50, 0, 50">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoToAssessments_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <!--Edit course details-->
+                    <Button x:Name="EditCourseDetails" Text="Edit Course Details" Style="{StaticResource BlueButtonStyle}" Clicked="EditCourseDetails_Clicked"/>
+                </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

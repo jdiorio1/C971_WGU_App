@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.AssessmentsPage"
+             Title="Assessments">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView x:Name="AssessmentList" x:FieldModifier="public" HasUnevenRows="True" ItemSelected="AssessmentList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="{StaticResource WGU_Gold}" Orientation="Vertical" Padding="10">
+                                <Label Text="{Binding Name}" TextColor="{StaticResource WGU_MainBlue}" FontSize="Large" FontAttributes="Bold"/>
+                                <Label Text="{Binding Type}" TextColor="{StaticResource WGU_MainBlue}" FontSize="Medium"/>
+                                <Label Text="{Binding StartDate, StringFormat='Start: {0:MMMM dd, yyyy}'}" TextColor="{StaticResource WGU_MainBlue}"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding EndDate, StringFormat='End:   {0:MMMM dd, yyyy}'}" 
+                                       HorizontalTextAlignment="Start" 
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="{StaticResource WGU_MainBlue}"/>
+                                    <ImageButton Source="{StaticResource GarbageIcon}" BackgroundColor="{StaticResource WGU_Gold}" Clicked="DeleteButton_Clicked" CommandParameter="{Binding .}"/>
+                                    <ImageButton Source="{StaticResource EditIcon}" BackgroundColor="{StaticResource WGU_Gold}" Clicked="EditButton_Clicked" CommandParameter="{Binding .}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="AddAssessmentButton" Text="Add Assessment" Style="{StaticResource GoldButtonStyle}" Clicked="AddAssessmentButton_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

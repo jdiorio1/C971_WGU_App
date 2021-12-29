@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.CoursesPage"
+             Title="Courses">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView x:Name="CourseList" x:FieldModifier="public" HasUnevenRows="True" ItemSelected="CourseList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="{StaticResource WGU_SecondBlue}" Orientation="Horizontal" Padding="15">
+                                <Label Text="{Binding Name}" TextColor="{StaticResource WGU_MainBlue}" FontSize="Large" 
+                                       FontAttributes="Bold" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"/>
+                                <ImageButton Source="{StaticResource GarbageIcon}" BackgroundColor="{StaticResource WGU_SecondBlue}" Clicked="DeleteButton_Clicked" CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="AddCourseButton" Text="Add Course" Style="{StaticResource BlueButtonStyle}" Clicked="AddCourseButton_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

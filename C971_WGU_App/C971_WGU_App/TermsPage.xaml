@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c971_WGU_App="clr-namespace:C971_WGU_App;assembly=C971_WGU_App" xmlns:c971_WGU_App1="clr-namespace:C971_WGU_App.Models"
+             x:Class="C971_WGU_App.TermsPage"
+             Title="Terms"
+             BackgroundColor="White">
+  <StackLayout Padding="10">
+         <ListView x:Name="TermsList" x:FieldModifier="public" HasUnevenRows="True" ItemSelected="TermsList_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="{StaticResource WGU_Gold}" Orientation="Vertical" Padding="10">
+                            <Label Text="{Binding Title}" TextColor="{StaticResource WGU_MainBlue}" FontSize="Large" FontAttributes="Bold"/>
+                            <Label Text="{Binding StartDate, StringFormat='Start: {0:MMMM dd, yyyy}'}" TextColor="{StaticResource WGU_MainBlue}"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding EndDate, StringFormat='End:   {0:MMMM dd, yyyy}'}" 
+                                       HorizontalTextAlignment="Start" 
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="{StaticResource WGU_MainBlue}"/>
+                                <ImageButton Source="{StaticResource GarbageIcon}" BackgroundColor="{StaticResource WGU_Gold}" Clicked="DeleteButton_Clicked" CommandParameter="{Binding .}"/>
+                                <ImageButton Source="{StaticResource EditIcon}" BackgroundColor="{StaticResource WGU_Gold}" Clicked="EditButton_Clicked" CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddTermButton" Text="Add Term" Style="{StaticResource GoldButtonStyle}" Clicked="AddTermButton_Clicked"></Button>
+  </StackLayout>
+</ContentPage>

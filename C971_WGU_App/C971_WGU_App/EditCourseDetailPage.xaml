@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.EditCourseDetailPage"
+             Title="Edit Course Detail">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <!--Course Information-->
+                <Entry Text="{Binding Name}" x:Name="CourseName"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                  FontSize="Title"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource WGU_MainBlue}"/>
+                <Label Text="Start Date" Margin="0, 20, 0, 0" Style="{StaticResource AddEditLabel}"/>
+                <DatePicker x:Name="startDatePicker" Format="d" Date="{Binding StartDate}"/>
+                <Label Text="End Date"
+                   Margin="0, 20, 0, 0"
+                   Style="{StaticResource AddEditLabel}"/>
+                <DatePicker x:Name="endDatePicker" Format="d" Date="{Binding EndDate}" MinimumDate="{Binding Source={x:Reference startDatePicker}, Path=Date}"/>
+                <Label Text="Course Status" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                <Picker Title="Course Status" x:Name="courseStatus">
+                    <Picker.Items>
+                        <x:String>Not Started</x:String>
+                        <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Set alerts for start and end of course" Style="{StaticResource AddEditLabel}" Margin="0, 30, 0, 0"/>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <RadioButton x:Name="YesButton" Text="Yes" CheckedChanged="YesButton_CheckedChanged"/>
+                    <RadioButton x:Name="NoButton" Text="No" CheckedChanged="NoButton_CheckedChanged"/>
+                </StackLayout>
+                <!--Instuctor Information-->
+                <Label Text="Instructor" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"
+                   FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource WGU_MainBlue}" Margin="0, 50, 0, 0"/>
+                <Label Text="Instructor Name" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                <Entry x:Name="InstructorName" Text="{Binding Name}"
+                   MaxLength="250"/>
+                <Label Text="Instructor Phone" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                <Entry x:Name="InstructorPhone" Text="{Binding Phone}"
+                   MaxLength="10"/>
+                <Label Text="Instructor Email" Style="{StaticResource AddEditLabel}" Margin="0, 20, 0, 0"/>
+                <Entry x:Name="InstructorEmail"
+                       Text="{Binding Email}"
+                   MaxLength="100"/>
+                <!--Notes-->
+                <Label Text="Notes" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"
+                   FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource WGU_MainBlue}" Margin="0, 50, 0, 20"/>
+                <Editor x:Name="Notes" 
+                        MaxLength="1000"
+                        AutoSize="TextChanges" Text="{Binding Notes}"/>
+                <!--save changes-->
+                <Button x:Name="SaveButton" Text="Save" Style="{StaticResource BlueButtonStyle}" Clicked="SaveButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_WGU_App.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="WGU_MainBlue">#003057</Color>
+            <Color x:Key="WGU_Gold">#C69214</Color>
+            <Color x:Key="WGU_SecondBlue">#327DA9</Color>
+            <x:String x:Key="EditIcon">edit.png</x:String>
+            <x:String x:Key="GarbageIcon">dustbin.png</x:String>
+
+            <Style x:Key="GoldButtonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="BackgroundColor" Value="#C69214"></Setter>
+                <Setter Property="TextColor" Value="#003057"></Setter>
+            </Style>
+
+            <Style x:Key="BlueButtonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="BackgroundColor" Value="#327DA9"></Setter>
+                <Setter Property="TextColor" Value="#003057"></Setter>
+            </Style>
+
+            <Style x:Key="AddEditLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="VerticalOptions" Value="Fill"></Setter>
+                <Setter Property="FontSize" Value="Medium"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="TextColor" Value="#003057"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
